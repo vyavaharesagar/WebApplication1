@@ -1,0 +1,61 @@
+﻿@*@model List<WebApplication1.Models.Student>*@
+@model List<WebApplication1.Models.ProductDTO>
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+    ViewBag.Title = "Show";
+    //int a = 10;
+}
+
+<h2>Show</h2>
+@{ 
+    @*for(int i = 0; i < 10; i++)
+    {
+        <div>India @i </div>
+        <input type="text" value="@a"/>
+    }*@
+
+foreach (var item in Model)
+{
+    <div style="border:1px solid red; width: 300px;height:100px">
+        <span>Product ID: @item.ProductID</span><br />
+        <span>Name: @item.Name</span><br />
+        <span>Price: @item.Price</span><br />
+        <span>Created On: @item.CreatedOn</span><br />
+        <span>Created By: @item.CreatedBy</span><br />
+        @if(Session["isadmin"] != null)
+        {
+            <a href="/Home/Delete/@item.ProductID">Delete</a>
+            <a href="/Home/Edit/@item.ProductID">Edit</a>
+        }
+    </div>
+}
+}
+
+@Html.TextBox("txtName")
+
+
+@section footer{
+    <div>footer adp.net</div>
+}
+@section scripts{
+    <script>
+        alert("Hello world");
+    </script>
+    }
+
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+        </tr>
+        @{
+            for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@Model[i].ID</td>
+                    <td>@Model[i].Name</td>
+                </tr>
+            }
+        }
+
+    </table>

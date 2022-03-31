@@ -1,0 +1,29 @@
+﻿@model WebApplication1.Models.Student
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>Login</h2>
+
+
+@*ID is: @ViewBag.ID <br />
+Name is: @ViewBag.Name <br />
+
+
+@{ 
+    var obj = (WebApplication1.Models.Student)ViewBag.Std;
+
+    <span>ID is: @obj.ID</span><br />
+    <span>Name is: @obj.Name</span>
+}
+
+<span>model.ID</span>
+<span>model.Name</span>*@
+
+<form action="/User/Login" method="post" value>
+    Login:<input type="text" name="txtLogin" ="@ViewBag.Login" /> <br />
+    Password:<input type="text" name="txtPassword"/><br />
+    <input type="submit" value="Login"/>
+    <span>@ViewBag.Msg</span>   
+</form>
